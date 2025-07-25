@@ -19,16 +19,15 @@ A responsive job board application built with **Next.js**, **TypeScript**, **Red
 
 ##  Tech Stack
 
-- [Next.js](https://nextjs.org/) – App routing and SSR
-- [TypeScript](https://www.typescriptlang.org/) – Type safety
-- [Redux Toolkit Query](https://redux-toolkit.js.org/rtk-query/overview) – Data fetching and caching
-- [Tailwind CSS](https://tailwindcss.com/) – Styling framework
-- [React](https://react.dev/) – UI framework
+- Next.js
+- TypeScript
+- Redux Toolkit Query
+- Tailwind CSS
+- React
 
 ---
 
 ## Screenshots
-
 
 ###  Job Listings Page
 
