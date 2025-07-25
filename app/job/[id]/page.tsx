@@ -1,31 +1,34 @@
 "use client";
-
-import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import JobDetails from "@/components/JobDetails";
-import { Details } from "@/type/job";
+import { useGetSinglePostQuery } from "@/app/service/data";
+import { JobPost } from "@/type/job";
 
 const JobDescription = () => {
-  const params = useParams();
-  const id = params.id as string;
+  const { id } = useParams();
+ 
 
-  const [data, setData] = useState<Details | null>(null);
+  const { isError, isLoading, isSuccess, data } = useGetSinglePostQuery(id as string);
+   console.log(data);
+  let content: React.ReactNode;
+  if (isLoading) {
+    content = (
+      <div className="text-center align-middle text-3xl text-orange-700 mt-48">
+        Loading...
+      </div>
+    );
+  } else if (isError) {
+    content = (
+      <div className="text-center text-red-600 align-middle font-bold text-xl  mt-48">
+        Opps. Something went wrong
+      </div>
+    );
+  } else if(isSuccess && data){
+    content =  <JobDetails job={data} />;
+  }
+ 
 
-  useEffect(() => {
-    if (!id) return;
-
-    fetch("/data/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(id);
-        const selectedJob = data.job_postings[parseInt(id)];
-        setData(selectedJob);
-      });
-  }, [id]);
-
-  if (!data) return <div>Loading...</div>;
-
-  return <JobDetails job={data} />;
+  return <div>{content}</div>;
 };
 
 export default JobDescription;

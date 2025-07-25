@@ -1,37 +1,41 @@
 "use client";
 import JobCard from "@/components/JobCard";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-interface Data {
-  title: string;
-  image: string;
-  description: string;
-}
-
-interface JobsList {
-  job_postings: Data[];
-}
-
-function getImage(): string {
-  for(let i = 1; i <= 4; i ++){
-    return `/images/job${i}.png`;
-  }
-  return ""
-}
+import { useGetJobPostsQuery } from "./service/data";
 
 export default function Home() {
-  const [data, setData] = useState<Data[]>([]);
-  useEffect(() => {
-    fetch("/data/data.json")
-      .then((res) => res.json())
-      .then((data: JobsList) => setData(data.job_postings));
+  const { isError, isLoading, isSuccess, data } = useGetJobPostsQuery();
+  console.log(data);
 
-  }, []);
+  let content: React.ReactNode;
+  if (isLoading) {
+    content = (
+      <div className="text-center align-middle text-3xl text-orange-700  mt-48">
+        Loading...
+      </div>
+    );
+  } else if (isError) {
+    content = (
+      <div className="text-center text-red-600 align-middle  mt-48">
+        Opps. Something went wrong
+      </div>
+    );
+  } else if (isSuccess) {
+    content = data.map((job, i) => (
+      <li key={job.id || i}>
+          <JobCard
+            id={job.id}
+            title={job.title}
+            description={job.description}
+            image={job.logoUrl} 
+          />
+      </li>
+    ));
+  }
   return (
     <main className="p-9">
       <div className="flex mx-auto w-3xl justify-between mb-6">
-        <div className="">
+        <div>
           <h1 className="font-extrabold text-2xl">Opportunites</h1>
           <p className="text-gray-400">show 73 items</p>
         </div>
@@ -39,27 +43,16 @@ export default function Home() {
           <span className="text-gray-500">sort by: </span>
           <span>
             most relevant
-            <select name="" id=""></select>
+            <select className="ml-2 border px-2 py-1 rounded">
+              <option value="relevant">Most Relevant</option>
+              <option value="latest">Latest</option>
+            </select>
           </span>
         </div>
-
-        <div className="flex "></div>
       </div>
 
       <div>
-        <ul className="flex flex-col gap-6">
-          {data?.map((data, i) => (
-            <li key={i}>
-              <Link href={`/job/${i}`}>
-                <JobCard
-                  title={data.title}
-                  description={data.description}
-                  image="/images/job1.png"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ul className="flex flex-col gap-6">{content}</ul>
       </div>
     </main>
   );
