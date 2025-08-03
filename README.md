@@ -59,30 +59,45 @@ A modern, responsive job board application built with **Next.js **, **TypeScript
 
 ### Login Page
 
-<img src="./public/screenshots/login.png" alt="Error" width="400"/>
+<img src="./public/screenshots/login.png" alt="login page" width="400"/>
 
 ---
 
 ###  SignUp State
 
-<img src="./public/screenshots/Loading.png" alt="Loading" width="400"/>
+<img src="./public/screenshots/signup.png" alt="signup page" width="400"/>
 
 ---
 
 ###  cypress test
 
-<img src="./public/screenshots/cypress-test.png" alt="Loading" width="400"/>
+<img src="./public/screenshots/cypress-test.png" alt="cypress-test" width="400"/>
 
 ---
 
 ###  jest unit test
 
-<img src="./public/screenshots/unit-test.png" alt="Loading" width="400"/>
+<img src="./public/screenshots/unit-test.png" alt="jest-unit-test" width="400"/>
 
 ---
 
 
+## Testing
 
+###  Unit Tests (Jest)
+
+- Component tests for
+  - Bookmark toggle
+     - npm run test-bookmark
+  - Job card
+     - npm run test-card
+- Run all tests:
+```bash
+npm run test
+
+### E2E Tests (cypress)
+ - Run test 
+npm run cypress:open
 
 
 
@@ -105,19 +120,3 @@ npm install
 npm run dev
 
 
-## Testing
-
-###  Unit Tests (Jest)
-
-- Component tests for
-  - Bookmark toggle
-     - npm run test-bookmark
-  - Job card
-     - npm run test-card
-- Run all tests:
-```bash
-npm run test
-
-### E2E Tests (cypress)
- - Run test
-npm run cypress:open
