@@ -91,13 +91,13 @@ A modern, responsive job board application built with **Next.js **, **TypeScript
      - npm run test-bookmark
   - Job card
      - npm run test-card
-- Run all tests:
-```bash
-npm run test
+- Run all tests
+     - npm test
+
 
 ### E2E Tests (cypress)
- - Run test 
-npm run cypress:open
+- Run test 
+    - npm run cypress:open
 
 
 
