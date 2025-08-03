@@ -7,8 +7,8 @@ interface JobDetails{
 
 const JobDetails: React.FC<JobDetails> = ({job}) => {
   return (
-    <div className="flex gap-10 p-10 lg:w-6xl md:mx-auto">
-      <div className="flex flex-col gap-8 md:w-4xl">
+    <div className="flex gap-10 p-10 lg:w-5xl md:mx-auto">
+      <div className="flex flex-col gap-10 md:w-5xl">
         <section>
           <h2 className="font-extrabold text-xl mb-2">Description</h2>
           <p className="text-gray-600 text-[14px] tracking-wide">

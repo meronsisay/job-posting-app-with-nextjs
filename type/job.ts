@@ -32,6 +32,17 @@ export interface JobPost {
       total_reviews: number;
 }
 
+export interface BookmarkedJob {
+  eventID: string;
+  title: string;
+  location: string;
+  logoUrl: string;
+  orgName: string;
+  opType: string;
+  datePosted: string;
+  dateBookmarked: string;
+}
+
 export interface Data {
   success: boolean;
   message: string;

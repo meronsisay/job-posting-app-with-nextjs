@@ -1,13 +1,13 @@
-import React from "react";
+import BookmarkToggle from "./BookToggleButton";
 import Image from "next/image";
 import Link from "next/link";
-
 
 interface JobCardProps {
   id: string;
   title: string;
   description: string;
   image: string;
+  isBookmarked?: boolean;
 }
 
 const JobCard: React.FC<JobCardProps> = ({
@@ -17,10 +17,13 @@ const JobCard: React.FC<JobCardProps> = ({
   description,
 }: JobCardProps) => {
   return (
-    <div className="border-2 border-gray-300 shadow w-3xl rounded-xl mx-auto px-10 py-4">
+    <div
+      className="border-2 border-gray-300 shadow w-3xl rounded-xl mx-auto px-10 py-4 flex justify-between"
+      data-testid="job-card"
+    >
       {/* for title and logo */}
       <Link href={`/job/${id}`}>
-        <div className="grid grid-cols-8">
+        <div className="grid grid-cols-8 gap-2">
           {/* logo div */}
 
           <div className="">
@@ -60,8 +63,10 @@ const JobCard: React.FC<JobCardProps> = ({
           </div>
         </div>
       </Link>
+      <BookmarkToggle jobId={id} />
     </div>
   );
 };
 
 export default JobCard;
+

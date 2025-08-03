@@ -2,12 +2,10 @@
 import { useParams } from "next/navigation";
 import JobDetails from "@/components/JobDetails";
 import { useGetSinglePostQuery } from "@/app/service/data";
-import { JobPost } from "@/type/job";
+
 
 const JobDescription = () => {
   const { id } = useParams();
- 
-
   const { isError, isLoading, isSuccess, data } = useGetSinglePostQuery(id as string);
    console.log(data);
   let content: React.ReactNode;
@@ -26,8 +24,6 @@ const JobDescription = () => {
   } else if(isSuccess && data){
     content =  <JobDetails job={data} />;
   }
- 
-
   return <div>{content}</div>;
 };
 
