@@ -1,6 +1,6 @@
 # Job Listing App
 
-A modern, responsive job board application built with **Next.js **, **TypeScript**, **Redux Toolkit Query**, and **Tailwind CSS**. It allows users to explore, filter, and bookmark job postings, with support for authentication using **NextAuth v5**. The app is tested with **Jest** and **Cypress** to ensure reliability.
+A job board application built with **Next.js**, **TypeScript**, **Redux Toolkit Query**, and **Tailwind CSS**. It allows users to explore, filter, and bookmark job postings, with support for authentication using **NextAuth v5**. The app is tested with **Jest** and **Cypress** to ensure reliability.
 
 ---
 
@@ -102,7 +102,7 @@ A modern, responsive job board application built with **Next.js **, **TypeScript
 
 
 
-## 🛠️ Installation & Running Locally
+##  Installation & Running Locally
 
 ```bash
 # 1. Clone the repository
